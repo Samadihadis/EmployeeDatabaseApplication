@@ -19,7 +19,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/firstNameTitleTextView"
-        android:layout_width="150dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
@@ -42,7 +42,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/lastNameTitleTextView"
-        android:layout_width="150dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -65,7 +65,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/nationalIDTitleTextView"
-        android:layout_width="150dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -89,7 +89,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/fatherNameTitleTextView"
-        android:layout_width="150dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -134,31 +134,31 @@
         tools:text="Phone Number" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/mobilePhoneNumberTitleTextView"
-        android:layout_width="150dp"
+        android:id="@+id/mobileNumberTitleTextView"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Mobile Phone Number : "
+        android:text="Mobile Number : "
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumberTitleTextView" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/mobilePhoneNumberValueTextView"
+        android:id="@+id/mobileNumberValueTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/mobilePhoneNumberTitleTextView"
-        app:layout_constraintStart_toEndOf="@+id/mobilePhoneNumberTitleTextView"
-        app:layout_constraintTop_toTopOf="@+id/mobilePhoneNumberTitleTextView"
-        tools:text="Mobile Phone Number" />
+        app:layout_constraintBottom_toBottomOf="@+id/mobileNumberTitleTextView"
+        app:layout_constraintStart_toEndOf="@+id/mobileNumberTitleTextView"
+        app:layout_constraintTop_toTopOf="@+id/mobileNumberTitleTextView"
+        tools:text="Mobile Number" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/addressTitleTextView"
-        android:layout_width="150dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -166,7 +166,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mobilePhoneNumberTitleTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/mobileNumberTitleTextView" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/addressValueTextView"

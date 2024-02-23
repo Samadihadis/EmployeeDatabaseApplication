@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/introFragment">
+
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="com.samadihadis.employeedatabaseapplication.presentation.intro.IntroFragment"
+        android:label="IntroFragment">
+        <action
+            android:id="@+id/action_to_employeeListFragment"
+            app:destination="@+id/employeeListFragment"
+            app:popUpTo="@id/introFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/employeeListFragment"
+        android:name="com.samadihadis.employeedatabaseapplication.presentation.list.EmployeeListFragment"
+        android:label="EmployeeListFragment">
+        <action
+            android:id="@+id/action_to_employeeDetailFragment"
+            app:destination="@+id/employeeDetailFragment"
+            app:popUpTo="@id/employeeListFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/employeeDetailFragment"
+        android:name="com.samadihadis.employeedatabaseapplication.presentation.detail.EmployeeDetailFragment"
+        android:label="EmployeeDetailFragment"/>
+
+
+
+</navigation>

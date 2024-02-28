@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,6 +34,7 @@ class EmployeeListFragment() : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         prepareData()
         setupView()
+        initAnimation()
         getAddEmployee()
     }
 
@@ -45,6 +45,14 @@ class EmployeeListFragment() : Fragment() {
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             addItemDecoration(dividerItemDecoration)
             adapter = employeeAdaptor
+        }
+        employeeAdaptor.addItemList(employeeList)
+        employeeAdaptor.setItemClickListener {
+            findNavController().navigate(
+                EmployeeListFragmentDirections.actionToEmployeeDetailFragment(
+                    it
+                )
+            )
         }
     }
 

@@ -12,14 +12,16 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.samadihadis.employeedatabaseapplication.data.EmployeeModel
 import com.samadihadis.employeedatabaseapplication.databinding.FragmentEmployeeListBinding
 
-class EmployeeListFragment(private val navController: NavController) : Fragment() {
+class EmployeeListFragment() : Fragment() {
     private lateinit var binding: FragmentEmployeeListBinding
     private val employeeAdaptor by lazy {
         EmployeeListAdapter(findNavController())
     }
     private var animation: ObjectAnimator? = null
+    private var employeeList = mutableListOf<EmployeeModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,8 +33,8 @@ class EmployeeListFragment(private val navController: NavController) : Fragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        prepareData()
         setupView()
-        initAnimation()
         getAddEmployee()
     }
 
@@ -57,9 +59,48 @@ class EmployeeListFragment(private val navController: NavController) : Fragment(
 
     private fun getAddEmployee() {
         binding.fabButton.setOnClickListener {
-            navController.navigate(
+            findNavController().navigate(
                 EmployeeListFragmentDirections.actionToAddEmployeeFragment()
             )
         }
+    }
+
+    private fun prepareData() {
+        employeeList.add(
+            EmployeeModel(
+                personnelID = 6806,
+                firstName = "حدیث",
+                lastName = "صمدی",
+                nationalID = "0017934699",
+                fatherName = "عزیزاله",
+                phoneNumber = "02155316024",
+                mobileNumber = "9128757419",
+                address = "خزانه بخارایی"
+            )
+        )
+        employeeList.add(
+            EmployeeModel(
+                personnelID = 6441,
+                firstName = "حسین",
+                lastName = "خیراله پور",
+                nationalID = "0410080012",
+                fatherName = "اروجعلی",
+                phoneNumber = "02155816775",
+                mobileNumber = "9127923092",
+                address = "وحدت اسلامی"
+            )
+        )
+        employeeList.add(
+            EmployeeModel(
+                personnelID = 6673,
+                firstName = "مهناز",
+                lastName = "نعمتی",
+                nationalID = "0079144691",
+                fatherName = "علی اصغر",
+                phoneNumber = "02177603475",
+                mobileNumber = "9372580212",
+                address = "میدان سپاه"
+            )
+        )
     }
 }

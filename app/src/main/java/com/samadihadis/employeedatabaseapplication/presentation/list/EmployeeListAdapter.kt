@@ -11,6 +11,8 @@ class EmployeeListAdapter(private val navController: NavController) :
     RecyclerView.Adapter<EmployeeItemListViewHolder>() {
 
     private var employeeList: MutableList<EmployeeModel> = mutableListOf()
+    private var employeeItemClickListener : ((EmployeeModel) -> Unit)? = null
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeItemListViewHolder {
         val view =
@@ -21,14 +23,21 @@ class EmployeeListAdapter(private val navController: NavController) :
     override fun getItemCount(): Int {
         return employeeList.size
     }
+    fun addItemList(countryModelList: List<EmployeeModel>) {
+        employeeList.addAll(countryModelList)
+        notifyItemRangeInserted(employeeList.size - 1, countryModelList.size)
+    }
 
     override fun onBindViewHolder(holder: EmployeeItemListViewHolder, position: Int) {
         holder.apply {
             personnelID.text = employeeList[position].personnelID.toString()
-            fullName.text = employeeList[position].firstName + employeeList[position].lastName
+            fullName.text = employeeList[position].firstName + " " +employeeList[position].lastName
             rootLayout.setOnClickListener {
 
             }
         }
+    }
+    fun setItemClickListener(listener: (EmployeeModel) -> Unit) {
+        employeeItemClickListener = listener
     }
 }

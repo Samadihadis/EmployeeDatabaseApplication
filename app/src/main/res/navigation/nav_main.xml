@@ -24,6 +24,11 @@
             app:destination="@+id/addEmployeeFragment"
             app:popUpTo="@id/employeeListFragment"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_to_employeeDetailFragment"
+            app:destination="@+id/employeeDetailFragment"
+            app:popUpTo="@id/employeeListFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
@@ -40,7 +45,12 @@
     <fragment
         android:id="@+id/employeeDetailFragment"
         android:name="com.samadihadis.employeedatabaseapplication.presentation.detail.EmployeeDetailFragment"
-        android:label="EmployeeDetailFragment"/>
+        android:label="EmployeeDetailFragment">
+        <argument
+            android:name="employeeModel"
+            app:argType="com.samadihadis.employeedatabaseapplication.data.EmployeeModel"
+            />
+    </fragment>
 
 
 

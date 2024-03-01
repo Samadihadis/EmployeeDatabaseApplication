@@ -27,117 +27,124 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/doneButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/doneButton"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/personnelIDEditText"
+                android:id="@+id/personnelIdInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="Personnel ID">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/personnelIDInputEditText"
+                    android:id="@+id/personnelIdEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/firstNameEditText"
+                android:id="@+id/firstNameInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="First Name">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/firstNameInputEditText"
+                    android:id="@+id/firstNameEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/lastNameEditText"
+                android:id="@+id/lastNameInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="Last Name">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/lastNameInputEditText"
+                    android:id="@+id/lastNameEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/nationalIDEditText"
+                android:id="@+id/nationalIdInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="National ID">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/nationalIDInputEditText"
+                    android:id="@+id/nationalIdEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="10"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/fatherNameDEditText"
+                android:id="@+id/fatherNameInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="Father's Name">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fatherNameInputEditText"
+                    android:id="@+id/fatherNameEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/landLineNumberEditText"
+                android:id="@+id/landLineNumberInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="Landline Number">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/phoneNumberInputEditText"
+                    android:id="@+id/landlineNumberEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:maxLength="11"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/mobileNumberEditText"
+                android:id="@+id/mobileNumberInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="Mobile Number">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/mobileNumberInputEditText"
+                    android:id="@+id/mobileNumberEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:maxLength="11"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/addressEditText"
+                android:id="@+id/addressInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="Address">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/addressInputEditText"
+                    android:id="@+id/addressEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="3" />
@@ -151,14 +158,14 @@
         android:id="@+id/doneButton"
         android:layout_width="150dp"
         android:layout_height="64dp"
+        android:layout_marginVertical="16dp"
         android:backgroundTint="@color/green"
         android:text="Save"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginVertical="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

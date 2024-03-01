@@ -9,10 +9,13 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface EmployeeDAO {
     @Query("SELECT * FROM employee_table ORDER BY personal_id ASC")
-    fun getAll(): Flow<List<EmployeeEntity>>
+    suspend fun getAll(): List<EmployeeEntity>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(employee: EmployeeEntity)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(employees: List<EmployeeEntity>)
 
     @Query("DELETE FROM employee_table")
     suspend fun deleteAll()

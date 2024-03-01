@@ -1,0 +1,16 @@
+package com.samadihadis.employeedatabaseapplication.data
+
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+
+interface EmployeeDAO {
+    @Query("SELECT * FROM employee_table ORDER BY personal_id ASC")
+    fun getAll(): List<EmployeeEntity>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(employee: EmployeeEntity)
+
+    @Query("DELETE FROM employee_table")
+    suspend fun deleteAll()
+}

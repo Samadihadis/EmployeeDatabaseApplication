@@ -14,7 +14,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.samadihadis.employeedatabaseapplication.data.EmployeeEntity
 import com.samadihadis.employeedatabaseapplication.data.EmployeeModel
+import com.samadihadis.employeedatabaseapplication.data.PersonGender
 import com.samadihadis.employeedatabaseapplication.databinding.FragmentEmployeeListBinding
 
 class EmployeeListFragment() : Fragment() {
@@ -27,7 +29,7 @@ class EmployeeListFragment() : Fragment() {
         DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
     }
     private var animation: ObjectAnimator? = null
-    private var employeeList = mutableListOf<EmployeeModel>()
+    private var employeeList = mutableListOf<EmployeeEntity>()
     private var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,44 +85,50 @@ class EmployeeListFragment() : Fragment() {
 
     private fun prepareMockData() {
         employeeList.add(
-            EmployeeModel(
+            EmployeeEntity(
                 personnelID = 6806,
+                gender = PersonGender.FEMALE.name,
                 firstName = "حدیث",
                 lastName = "صمدی",
                 nationalID = "0017934699",
                 fatherName = "عزیزاله",
-                phoneNumber = "02155316024",
+                landlineNumber = "02155316024",
                 mobileNumber = "9128757419",
-                address = "خزانه بخارایی"
+                address = "خزانه بخارایی",
+                isFavorite = false
             )
         )
         employeeList.add(
-            EmployeeModel(
+            EmployeeEntity(
                 personnelID = 6441,
+                gender = PersonGender.MALE.name,
                 firstName = "حسین",
                 lastName = "خیراله پور",
                 nationalID = "0410080012",
                 fatherName = "اروجعلی",
-                phoneNumber = "02155816775",
+                landlineNumber = "02155816775",
                 mobileNumber = "9127923092",
-                address = "وحدت اسلامی"
+                address = "وحدت اسلامی",
+                isFavorite = true
             )
         )
         employeeList.add(
-            EmployeeModel(
+            EmployeeEntity(
                 personnelID = 6673,
+                gender = PersonGender.FEMALE.name,
                 firstName = "مهناز",
                 lastName = "نعمتی",
                 nationalID = "0079144691",
                 fatherName = "علی اصغر",
-                phoneNumber = "02177603475",
+                landlineNumber = "02177603475",
                 mobileNumber = "9372580212",
-                address = "میدان سپاه"
+                address = "میدان سپاه",
+                isFavorite = true
             )
         )
     }
 
-    private fun addEmployeeList(employees: List<EmployeeModel>) {
+    private fun addEmployeeList(employees: List<EmployeeEntity>) {
         employeeAdaptor.clearList()
         employeeAdaptor.addItemList(employees)
     }

@@ -23,14 +23,14 @@ class EmployeeDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-            toolbar.title = args.employeeModel.personnelID.toString()
-            firstNameValueTextView.text = args.employeeModel.firstName
-            lastNameValueTextView.text = args.employeeModel.lastName
-            fatherNameValueTextView.text = args.employeeModel.fatherName
-            nationalIDValueTextView.text = args.employeeModel.nationalID
-            phoneNumberValueTextView.text = args.employeeModel.phoneNumber
-            mobileNumberValueTextView.text = args.employeeModel.mobileNumber
-            addressValueTextView.text = args.employeeModel.address
+            toolbar.title = args.employeeEntity.personnelID.toString()
+            firstNameValueTextView.text = args.employeeEntity.firstName
+            lastNameValueTextView.text = args.employeeEntity.lastName
+            fatherNameValueTextView.text = args.employeeEntity.fatherName
+            nationalIDValueTextView.text = args.employeeEntity.nationalID
+            phoneNumberValueTextView.text = args.employeeEntity.landlineNumber
+            mobileNumberValueTextView.text = args.employeeEntity.mobileNumber
+            addressValueTextView.text = args.employeeEntity.address
         }
     }
 }

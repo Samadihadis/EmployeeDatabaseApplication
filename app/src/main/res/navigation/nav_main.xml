@@ -41,8 +41,8 @@
         android:name="com.samadihadis.employeedatabaseapplication.presentation.detail.EmployeeDetailFragment"
         android:label="EmployeeDetailFragment">
         <argument
-            android:name="employeeModel"
-            app:argType="com.samadihadis.employeedatabaseapplication.data.EmployeeModel" />
+            android:name="employeeEntity"
+            app:argType="com.samadihadis.employeedatabaseapplication.data.EmployeeEntity" />
     </fragment>
 
 </navigation>

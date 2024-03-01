@@ -117,12 +117,12 @@
         tools:text="Father's Name" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/phoneNumberTitleTextView"
+        android:id="@+id/landLineNumberTitleTextView"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="Phone Number: "
+        android:text="Landline Number: "
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -134,10 +134,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/phoneNumberTitleTextView"
-        app:layout_constraintStart_toEndOf="@+id/phoneNumberTitleTextView"
-        app:layout_constraintTop_toTopOf="@+id/phoneNumberTitleTextView"
-        tools:text="Phone Number" />
+        app:layout_constraintBottom_toBottomOf="@+id/landLineNumberTitleTextView"
+        app:layout_constraintStart_toEndOf="@+id/landLineNumberTitleTextView"
+        app:layout_constraintTop_toTopOf="@+id/landLineNumberTitleTextView"
+        tools:text="Landline Number" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/mobileNumberTitleTextView"
@@ -149,7 +149,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumberTitleTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/landLineNumberTitleTextView" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/mobileNumberValueTextView"

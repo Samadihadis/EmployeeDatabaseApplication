@@ -2,15 +2,14 @@ package com.samadihadis.employeedatabaseapplication.presentation.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.samadihadis.employeedatabaseapplication.R
-import com.samadihadis.employeedatabaseapplication.data.EmployeeModel
+import com.samadihadis.employeedatabaseapplication.data.EmployeeEntity
 
 class EmployeeListAdapter : RecyclerView.Adapter<EmployeeItemListViewHolder>() {
 
-    private var employeeList: MutableList<EmployeeModel> = mutableListOf()
-    private var employeeItemClickListener: ((EmployeeModel) -> Unit)? = null
+    private var employeeList: MutableList<EmployeeEntity> = mutableListOf()
+    private var employeeItemClickListener: ((EmployeeEntity) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeItemListViewHolder {
         val view =
@@ -22,7 +21,7 @@ class EmployeeListAdapter : RecyclerView.Adapter<EmployeeItemListViewHolder>() {
         return employeeList.size
     }
 
-    fun addItemList(countryModelList: List<EmployeeModel>) {
+    fun addItemList(countryModelList: List<EmployeeEntity>) {
         employeeList.addAll(countryModelList)
         notifyItemRangeInserted(employeeList.size - 1, countryModelList.size)
     }
@@ -37,7 +36,7 @@ class EmployeeListAdapter : RecyclerView.Adapter<EmployeeItemListViewHolder>() {
         }
     }
 
-    fun setItemClickListener(listener: (EmployeeModel) -> Unit) {
+    fun setItemClickListener(listener: (EmployeeEntity) -> Unit) {
         employeeItemClickListener = listener
     }
 

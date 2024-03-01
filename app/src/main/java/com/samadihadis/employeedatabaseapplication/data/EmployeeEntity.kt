@@ -7,7 +7,7 @@ import java.io.Serializable
 
 @Entity(tableName = "employee_table")
 class EmployeeEntity(
-    @PrimaryKey @ColumnInfo(name = "personal_id") val personnelID : Int,
+    @PrimaryKey @ColumnInfo(name = "personnel_id") val personnelID : Int,
     @ColumnInfo(name = "gender") val gender : String,
     @ColumnInfo(name = "first_name") val firstName : String,
     @ColumnInfo(name = "last_name") val lastName : String,

@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.samadihadis.employeedatabaseapplication.data.EmployeeEntity
-import com.samadihadis.employeedatabaseapplication.data.EmployeeModel
 import com.samadihadis.employeedatabaseapplication.data.PersonGender
 import com.samadihadis.employeedatabaseapplication.databinding.FragmentEmployeeListBinding
 

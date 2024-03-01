@@ -15,9 +15,10 @@ import com.samadihadis.employeedatabaseapplication.data.EmployeeModel
 import com.samadihadis.employeedatabaseapplication.databinding.FragmentEmployeeListBinding
 
 class EmployeeListFragment() : Fragment() {
+
     private lateinit var binding: FragmentEmployeeListBinding
     private val employeeAdaptor by lazy {
-        EmployeeListAdapter(findNavController())
+        EmployeeListAdapter()
     }
     private var animation: ObjectAnimator? = null
     private var employeeList = mutableListOf<EmployeeModel>()
@@ -32,7 +33,7 @@ class EmployeeListFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        prepareData()
+        prepareMockData()
         setupView()
         initAnimation()
         getAddEmployee()
@@ -49,9 +50,7 @@ class EmployeeListFragment() : Fragment() {
         employeeAdaptor.addItemList(employeeList)
         employeeAdaptor.setItemClickListener {
             findNavController().navigate(
-                EmployeeListFragmentDirections.actionToEmployeeDetailFragment(
-                    it
-                )
+                EmployeeListFragmentDirections.actionToEmployeeDetailFragment(it)
             )
         }
     }
@@ -64,7 +63,6 @@ class EmployeeListFragment() : Fragment() {
         }
     }
 
-
     private fun getAddEmployee() {
         binding.fabButton.setOnClickListener {
             findNavController().navigate(
@@ -73,7 +71,7 @@ class EmployeeListFragment() : Fragment() {
         }
     }
 
-    private fun prepareData() {
+    private fun prepareMockData() {
         employeeList.add(
             EmployeeModel(
                 personnelID = 6806,

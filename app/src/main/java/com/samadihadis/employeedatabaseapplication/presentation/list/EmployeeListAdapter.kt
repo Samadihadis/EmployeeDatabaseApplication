@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.samadihadis.employeedatabaseapplication.R
 import com.samadihadis.employeedatabaseapplication.data.EmployeeModel
 
-class EmployeeListAdapter(private val navController: NavController) :
-    RecyclerView.Adapter<EmployeeItemListViewHolder>() {
+class EmployeeListAdapter : RecyclerView.Adapter<EmployeeItemListViewHolder>() {
 
     private var employeeList: MutableList<EmployeeModel> = mutableListOf()
     private var employeeItemClickListener: ((EmployeeModel) -> Unit)? = null

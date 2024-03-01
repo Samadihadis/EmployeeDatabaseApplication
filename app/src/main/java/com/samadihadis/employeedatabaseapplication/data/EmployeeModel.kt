@@ -1,14 +1,20 @@
 package com.samadihadis.employeedatabaseapplication.data
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.io.Serializable
 
-data class EmployeeModel(
-    val personnelID : Int,
-    val firstName : String,
-    val lastName : String,
-    val nationalID : String,
-    val fatherName : String,
-    val phoneNumber : String,
-    val mobileNumber : String,
-    val address : String
+@Entity(tableName = "employee_table")
+class EmployeeModel(
+    @PrimaryKey @ColumnInfo(name = "personal_id") val personnelID : Int,
+    @ColumnInfo(name = "gender") val gender : String,
+    @ColumnInfo(name = "first_name") val firstName : String,
+    @ColumnInfo(name = "last_name") val lastName : String,
+    @ColumnInfo(name = "national_id") val nationalID : String,
+    @ColumnInfo(name = "father_name") val fatherName : String,
+    @ColumnInfo(name = "landline_number") val landlineNumber : String,
+    @ColumnInfo(name = "mobile_number") val mobileNumber : String,
+    @ColumnInfo(name = "person_address") val address : String,
+    @ColumnInfo(name = "is_favorite") val isFavorite : String,
 ): Serializable

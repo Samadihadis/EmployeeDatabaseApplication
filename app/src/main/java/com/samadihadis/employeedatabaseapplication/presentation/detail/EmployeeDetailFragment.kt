@@ -23,7 +23,7 @@ class EmployeeDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-            personnelIDDetail.text = args.employeeModel.personnelID.toString()
+            toolbar.title = args.employeeModel.personnelID.toString()
             firstNameValueTextView.text = args.employeeModel.firstName
             lastNameValueTextView.text = args.employeeModel.lastName
             fatherNameValueTextView.text = args.employeeModel.fatherName

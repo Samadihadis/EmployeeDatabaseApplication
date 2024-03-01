@@ -44,6 +44,7 @@ android {
 dependencies {
 
 
+    val kotlinVersion = rootProject.extra["kotlin_version"]
     val coreVersion = rootProject.extra["core_version"]
     val navigationVersion = rootProject.extra["navigation_version"]
     val activityVersion = rootProject.extra["activity_version"]
@@ -83,6 +84,7 @@ dependencies {
 
     
     // Kotlin components
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
     api ("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
     api ("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 

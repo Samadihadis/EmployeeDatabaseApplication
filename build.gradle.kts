@@ -9,6 +9,7 @@ plugins {
 
 buildscript {
     extra.apply {
+        set("kotlin_version", "1.9.10")
         set("core_version", "1.12.0")
         set("navigation_version", "2.7.7")
         set("appcompat_version", "1.6.1")

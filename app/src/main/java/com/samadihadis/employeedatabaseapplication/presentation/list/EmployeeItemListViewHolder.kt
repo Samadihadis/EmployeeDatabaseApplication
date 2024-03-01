@@ -17,8 +17,8 @@ class EmployeeItemListViewHolder (view: View) : RecyclerView.ViewHolder(view){
     init {
         view.apply {
             employeeImageView = findViewById(R.id.employeeImageView)
-            fullName = findViewById(R.id.fullName)
-            personnelID = findViewById(R.id.personnelID)
+            fullName = findViewById(R.id.fullNameTextView)
+            personnelID = findViewById(R.id.personnelIDTextView)
             rootLayout = findViewById(R.id.RootLayout)
         }
     }

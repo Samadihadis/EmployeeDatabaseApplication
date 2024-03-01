@@ -12,7 +12,6 @@ class EmployeeListAdapter : RecyclerView.Adapter<EmployeeItemListViewHolder>() {
     private var employeeList: MutableList<EmployeeModel> = mutableListOf()
     private var employeeItemClickListener: ((EmployeeModel) -> Unit)? = null
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeItemListViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_employee, parent, false)
@@ -40,5 +39,10 @@ class EmployeeListAdapter : RecyclerView.Adapter<EmployeeItemListViewHolder>() {
 
     fun setItemClickListener(listener: (EmployeeModel) -> Unit) {
         employeeItemClickListener = listener
+    }
+
+    fun clearList() {
+        employeeList.clear()
+        notifyDataSetChanged()
     }
 }

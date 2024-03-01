@@ -2,10 +2,13 @@ package com.samadihadis.employeedatabaseapplication.presentation.list
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -20,8 +23,17 @@ class EmployeeListFragment() : Fragment() {
     private val employeeAdaptor by lazy {
         EmployeeListAdapter()
     }
+    private val dividerItemDecoration by lazy {
+        DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+    }
     private var animation: ObjectAnimator? = null
     private var employeeList = mutableListOf<EmployeeModel>()
+    private var doubleBackToExitPressedOnce = false
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        prepareMockData()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,21 +45,27 @@ class EmployeeListFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        prepareMockData()
-        setupView()
+        onBackPressedCallback()
         initAnimation()
-        getAddEmployee()
+        setupView()
+        setupClickListeners()
+        addEmployeeList(employeeList)
     }
 
     private fun setupView() {
-        val dividerItemDecoration =
-            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
         with(binding.employeeRecyclerView) {
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             addItemDecoration(dividerItemDecoration)
             adapter = employeeAdaptor
         }
-        employeeAdaptor.addItemList(employeeList)
+    }
+
+    private fun setupClickListeners() {
+        binding.fabButton.setOnClickListener {
+            findNavController().navigate(
+                EmployeeListFragmentDirections.actionToAddEmployeeFragment()
+            )
+        }
         employeeAdaptor.setItemClickListener {
             findNavController().navigate(
                 EmployeeListFragmentDirections.actionToEmployeeDetailFragment(it)
@@ -60,14 +78,6 @@ class EmployeeListFragment() : Fragment() {
             duration = 1000
             repeatCount = ObjectAnimator.INFINITE
             interpolator = LinearInterpolator()
-        }
-    }
-
-    private fun getAddEmployee() {
-        binding.fabButton.setOnClickListener {
-            findNavController().navigate(
-                EmployeeListFragmentDirections.actionToAddEmployeeFragment()
-            )
         }
     }
 
@@ -109,4 +119,27 @@ class EmployeeListFragment() : Fragment() {
             )
         )
     }
+
+    private fun addEmployeeList(employees: List<EmployeeModel>) {
+        employeeAdaptor.clearList()
+        employeeAdaptor.addItemList(employees)
+    }
+
+    private fun onBackPressedCallback() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    if (doubleBackToExitPressedOnce) {
+                        requireActivity().finish()
+                        return
+                    }
+                    doubleBackToExitPressedOnce = true
+                    Toast.makeText(requireContext(), "click back button again", Toast.LENGTH_SHORT)
+                        .show()
+                    Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
+                }
+            })
+    }
+
+
 }

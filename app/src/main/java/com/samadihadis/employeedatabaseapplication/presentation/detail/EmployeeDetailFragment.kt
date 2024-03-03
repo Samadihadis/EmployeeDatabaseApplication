@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.samadihadis.employeedatabaseapplication.data.EmployeeRoomDatabase
+import com.samadihadis.employeedatabaseapplication.data.PersonGender
 import com.samadihadis.employeedatabaseapplication.databinding.FragmentEmployeeDetailBinding
 import kotlinx.coroutines.launch
 
@@ -35,6 +36,8 @@ class EmployeeDetailFragment : Fragment() {
 
     private fun setupViews() = with(binding) {
         toolbar.title = args.employeeEntity.personnelID.toString()
+        genderValueTextView.text =
+            if (args.employeeEntity.gender == PersonGender.MALE.name) "male" else "female"
         firstNameValueTextView.text = args.employeeEntity.firstName
         lastNameValueTextView.text = args.employeeEntity.lastName
         fatherNameValueTextView.text = args.employeeEntity.fatherName

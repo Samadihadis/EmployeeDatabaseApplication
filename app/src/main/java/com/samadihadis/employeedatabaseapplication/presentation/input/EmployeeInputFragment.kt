@@ -46,6 +46,11 @@ class EmployeeInputFragment : Fragment() {
         doneButton.text = "Update"
         personnelIdEditText.inputType = InputType.TYPE_NULL
 
+        if (args.employeeEntity?.gender == PersonGender.MALE.name){
+            maleRadio.isChecked = true
+        } else {
+            femaleRadio.isChecked = true
+        }
         personnelIdEditText.setText(model?.personnelID.toString())
         firstNameEditText.setText(model?.firstName)
         lastNameEditText.setText(model?.lastName)
@@ -65,6 +70,10 @@ class EmployeeInputFragment : Fragment() {
     }
 
     private fun prepareData(): EmployeeEntity? {
+
+        val isMale = binding.maleRadio.isChecked
+        val isFemale = binding.maleRadio.isChecked
+
         val personalId = binding.personnelIdEditText.text.toString()
         val firstName = binding.firstNameEditText.text.toString()
         val lastName = binding.lastNameEditText.text.toString()
@@ -73,6 +82,12 @@ class EmployeeInputFragment : Fragment() {
         val landlineNumber = binding.landlineNumberEditText.text.toString()
         val mobileNumber = binding.mobileNumberEditText.text.toString()
         val address = binding.addressEditText.text.toString() // Optional
+
+        if (!isMale && !isFemale) {
+            Toast.makeText(requireContext(), "مقدار جنسیت نامعتبر است.", Toast.LENGTH_SHORT)
+                .show()
+            return null
+        }
 
         if (personalId.length <= 3) {
             Toast.makeText(requireContext(), "مقدار کد پرسنلی نامعتبر است.", Toast.LENGTH_SHORT)
@@ -116,7 +131,7 @@ class EmployeeInputFragment : Fragment() {
 
         return EmployeeEntity(
             personnelID = personalId.toInt(),
-            gender = PersonGender.FEMALE.name,
+            gender = if (isMale) PersonGender.MALE.name else PersonGender.FEMALE.name,
             firstName = firstName,
             lastName = lastName,
             fatherName = fatherName,

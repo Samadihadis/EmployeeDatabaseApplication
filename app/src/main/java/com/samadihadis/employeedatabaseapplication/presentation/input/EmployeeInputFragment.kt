@@ -133,10 +133,12 @@ class EmployeeInputFragment : Fragment() {
             if (isUpdateOperation) {
                 EmployeeRoomDatabase.getDatabase(requireContext()).employeeDao()
                     .update(employeeEntity)
-                findNavController().popBackStack(R.id.employeeListFragment, true)
+                Toast.makeText(requireContext(), "Update Operation Is Done.", Toast.LENGTH_SHORT).show()
+                findNavController().popBackStack(R.id.employeeDetailFragment, true)
             } else {
                 EmployeeRoomDatabase.getDatabase(requireContext()).employeeDao()
                     .insert(employeeEntity)
+                Toast.makeText(requireContext(), "Add Operation Is Done.", Toast.LENGTH_SHORT).show()
                 findNavController().popBackStack()
             }
         }

@@ -1,5 +1,6 @@
 package com.samadihadis.employeedatabaseapplication.presentation.detail
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import com.samadihadis.employeedatabaseapplication.data.EmployeeRoomDatabase
 import com.samadihadis.employeedatabaseapplication.databinding.FragmentEmployeeDetailBinding
 import kotlinx.coroutines.launch
+
 
 class EmployeeDetailFragment : Fragment() {
 
@@ -44,16 +46,34 @@ class EmployeeDetailFragment : Fragment() {
 
     private fun setupClickListener() {
         binding.deleteButton.setOnClickListener {
-            deleteEmployee()
+            confirmDelete()
         }
         binding.editButton.setOnClickListener {
-            findNavController().navigate(EmployeeDetailFragmentDirections.actionToEmployeeInputFragment(args.employeeEntity))
+            findNavController().navigate(
+                EmployeeDetailFragmentDirections.actionToEmployeeInputFragment(
+                    args.employeeEntity
+                )
+            )
         }
+    }
+
+    private fun confirmDelete() {
+        AlertDialog.Builder(requireContext())
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .setTitle("Delete Employee?")
+            .setMessage("Are you sure to delete this entry?")
+            .setPositiveButton("Yes") { dialog, _ ->
+                dialog.dismiss()
+                deleteEmployee()
+            }
+            .setNegativeButton("No", null)
+            .show()
     }
 
     private fun deleteEmployee() {
         lifecycleScope.launch {
-            EmployeeRoomDatabase.getDatabase(requireContext()).employeeDao().delete(args.employeeEntity.personnelID)
+            EmployeeRoomDatabase.getDatabase(requireContext()).employeeDao()
+                .delete(args.employeeEntity.personnelID)
             findNavController().popBackStack()
         }
     }

@@ -46,6 +46,9 @@ class EmployeeDetailFragment : Fragment() {
         binding.deleteButton.setOnClickListener {
             deleteEmployee()
         }
+        binding.editButton.setOnClickListener {
+            findNavController().navigate(EmployeeDetailFragmentDirections.actionToEmployeeInputFragment(args.employeeEntity))
+        }
     }
 
     private fun deleteEmployee() {

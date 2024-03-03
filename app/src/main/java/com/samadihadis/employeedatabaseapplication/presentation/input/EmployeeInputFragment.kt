@@ -1,4 +1,4 @@
-package com.samadihadis.employeedatabaseapplication.presentation.add
+package com.samadihadis.employeedatabaseapplication.presentation.input
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,21 +8,24 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.samadihadis.employeedatabaseapplication.data.EmployeeEntity
 import com.samadihadis.employeedatabaseapplication.data.EmployeeRoomDatabase
 import com.samadihadis.employeedatabaseapplication.data.PersonGender
-import com.samadihadis.employeedatabaseapplication.databinding.FragmentAddEmployeeBinding
+import com.samadihadis.employeedatabaseapplication.databinding.FragmentEmployeeInputBinding
+import com.samadihadis.employeedatabaseapplication.presentation.detail.EmployeeDetailFragmentArgs
 import kotlinx.coroutines.launch
 
-class AddEmployeeFragment() : Fragment() {
+class EmployeeInputFragment() : Fragment() {
 
-    private lateinit var binding: FragmentAddEmployeeBinding
+    private val args by navArgs<EmployeeInputFragmentArgs>()
+    private lateinit var binding: FragmentEmployeeInputBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAddEmployeeBinding.inflate(inflater, container, false)
+        binding = FragmentEmployeeInputBinding.inflate(inflater, container, false)
         return binding.root
     }
 

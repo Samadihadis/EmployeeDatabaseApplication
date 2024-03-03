@@ -20,17 +20,21 @@
         android:name="com.samadihadis.employeedatabaseapplication.presentation.list.EmployeeListFragment"
         android:label="EmployeeListFragment">
         <action
-            android:id="@+id/action_to_addEmployeeFragment"
-            app:destination="@+id/addEmployeeFragment" />
+            android:id="@+id/action_to_employeeInputFragment"
+            app:destination="@+id/employeeInputFragment" />
         <action
             android:id="@+id/action_to_employeeDetailFragment"
             app:destination="@+id/employeeDetailFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/addEmployeeFragment"
-        android:name="com.samadihadis.employeedatabaseapplication.presentation.add.AddEmployeeFragment"
-        android:label="AddEmployeeFragment">
+        android:id="@+id/employeeInputFragment"
+        android:name="com.samadihadis.employeedatabaseapplication.presentation.input.EmployeeInputFragment"
+        android:label="EmployeeInputFragment">
+        <argument
+            android:name="employeeEntity"
+            app:nullable="true"
+            app:argType="com.samadihadis.employeedatabaseapplication.data.EmployeeEntity" />
         <action
             android:id="@+id/action_to_employeeListFragment"
             app:destination="@+id/employeeListFragment" />
@@ -40,6 +44,9 @@
         android:id="@+id/employeeDetailFragment"
         android:name="com.samadihadis.employeedatabaseapplication.presentation.detail.EmployeeDetailFragment"
         android:label="EmployeeDetailFragment">
+        <action
+            android:id="@+id/action_to_employeeInputFragment"
+            app:destination="@+id/employeeInputFragment" />
         <argument
             android:name="employeeEntity"
             app:argType="com.samadihadis.employeedatabaseapplication.data.EmployeeEntity" />

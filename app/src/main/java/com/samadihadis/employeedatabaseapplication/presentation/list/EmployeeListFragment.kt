@@ -59,7 +59,7 @@ class EmployeeListFragment : Fragment() {
     private fun setupClickListeners() {
         binding.fabButton.setOnClickListener {
             findNavController().navigate(
-                EmployeeListFragmentDirections.actionToAddEmployeeFragment()
+                EmployeeListFragmentDirections.actionToEmployeeInputFragment(null)
             )
         }
         employeeAdaptor.setItemClickListener {

@@ -7,7 +7,7 @@ import com.samadihadis.employeedatabaseapplication.R
 import com.samadihadis.employeedatabaseapplication.data.EmployeeEntity
 
 class EmployeeListAdapter(
-    private val onFavoriteChanged: (EmployeeEntity) -> Unit
+    private val onFavoriteChanged: (Int, Boolean) -> Unit
 ) : RecyclerView.Adapter<EmployeeItemListViewHolder>() {
 
     private var employeeList: MutableList<EmployeeEntity> = mutableListOf()
@@ -50,7 +50,7 @@ class EmployeeListAdapter(
                     isFavoriteImageView.setImageResource(R.drawable.icon_fav_fill)
                     employeeList[position].isFavorite = true
                 }
-                onFavoriteChanged.invoke(employeeList[position])
+                onFavoriteChanged.invoke(employeeList[position].personnelID, employeeList[position].isFavorite)
             }
         }
     }

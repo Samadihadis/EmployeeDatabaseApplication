@@ -17,6 +17,9 @@ interface EmployeeDAO {
     @Update
     suspend fun update(employee: EmployeeEntity)
 
+    @Query("UPDATE employee_table SET is_favorite=:isFavorite WHERE personnel_id = :personnelId")
+    suspend fun update(personnelId: Int, isFavorite: Boolean)
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(employees: List<EmployeeEntity>)
 

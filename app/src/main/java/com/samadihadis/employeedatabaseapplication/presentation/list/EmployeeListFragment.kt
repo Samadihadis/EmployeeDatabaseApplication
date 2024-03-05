@@ -23,10 +23,10 @@ class EmployeeListFragment : Fragment() {
 
     private lateinit var binding: FragmentEmployeeListBinding
     private val employeeAdaptor by lazy {
-        EmployeeListAdapter() {
+        EmployeeListAdapter() { id, favorite ->
             lifecycleScope.launch {
                 EmployeeRoomDatabase.getDatabase(requireContext()).employeeDao()
-                    .update(it)
+                    .update(id, favorite)
             }
         }
     }

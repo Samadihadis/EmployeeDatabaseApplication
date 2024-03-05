@@ -72,7 +72,7 @@ class EmployeeInputFragment : Fragment() {
     private fun prepareData(): EmployeeEntity? {
 
         val isMale = binding.maleRadio.isChecked
-        val isFemale = binding.maleRadio.isChecked
+        val isFemale = binding.femaleRadio.isChecked
 
         val personalId = binding.personnelIdEditText.text.toString()
         val firstName = binding.firstNameEditText.text.toString()

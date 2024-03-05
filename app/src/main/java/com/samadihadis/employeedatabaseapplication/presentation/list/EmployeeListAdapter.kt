@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.samadihadis.employeedatabaseapplication.R
 import com.samadihadis.employeedatabaseapplication.data.EmployeeEntity
 
-class EmployeeListAdapter : RecyclerView.Adapter<EmployeeItemListViewHolder>() {
+class EmployeeListAdapter(
+    private val onFavoriteChanged: (EmployeeEntity) -> Unit
+) : RecyclerView.Adapter<EmployeeItemListViewHolder>() {
 
     private var employeeList: MutableList<EmployeeEntity> = mutableListOf()
     private var employeeItemClickListener: ((EmployeeEntity) -> Unit)? = null
@@ -40,6 +42,16 @@ class EmployeeListAdapter : RecyclerView.Adapter<EmployeeItemListViewHolder>() {
                     R.drawable.icon_fav_empty
                 }
             )
+            isFavoriteImageView.setOnClickListener {
+                if (employeeList[position].isFavorite) {
+                    isFavoriteImageView.setImageResource(R.drawable.icon_fav_empty)
+                    employeeList[position].isFavorite = false
+                } else {
+                    isFavoriteImageView.setImageResource(R.drawable.icon_fav_fill)
+                    employeeList[position].isFavorite = true
+                }
+                onFavoriteChanged.invoke(employeeList[position])
+            }
         }
     }
 

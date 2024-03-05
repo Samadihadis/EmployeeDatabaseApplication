@@ -16,5 +16,5 @@ class EmployeeEntity(
     @ColumnInfo(name = "landline_number") val landlineNumber : String,
     @ColumnInfo(name = "mobile_number") val mobileNumber : String,
     @ColumnInfo(name = "person_address") val address : String,
-    @ColumnInfo(name = "is_favorite") val isFavorite : Boolean,
+    @ColumnInfo(name = "is_favorite") var isFavorite : Boolean,
 ): Serializable

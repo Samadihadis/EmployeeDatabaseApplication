@@ -23,7 +23,12 @@ class EmployeeListFragment : Fragment() {
 
     private lateinit var binding: FragmentEmployeeListBinding
     private val employeeAdaptor by lazy {
-        EmployeeListAdapter()
+        EmployeeListAdapter() {
+            lifecycleScope.launch {
+                EmployeeRoomDatabase.getDatabase(requireContext()).employeeDao()
+                    .update(it)
+            }
+        }
     }
     private val dividerItemDecoration by lazy {
         DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)

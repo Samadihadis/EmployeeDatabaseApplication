@@ -33,6 +33,13 @@ class EmployeeListAdapter : RecyclerView.Adapter<EmployeeItemListViewHolder>() {
             rootLayout.setOnClickListener {
                 employeeItemClickListener?.invoke(employeeList[position])
             }
+            isFavoriteImageView.setImageResource(
+                if (employeeList[position].isFavorite) {
+                    R.drawable.icon_fav_fill
+                } else {
+                    R.drawable.icon_fav_empty
+                }
+            )
         }
     }
 

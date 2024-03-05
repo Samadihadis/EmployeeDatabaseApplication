@@ -9,17 +9,19 @@ import com.samadihadis.employeedatabaseapplication.R
 
 class EmployeeItemListViewHolder (view: View) : RecyclerView.ViewHolder(view){
 
+    val rootLayout: ConstraintLayout
     val employeeImageView: AppCompatImageView
     val fullName: MaterialTextView
     val personnelID : MaterialTextView
-    val rootLayout: ConstraintLayout
+    val isFavoriteImageView : AppCompatImageView
 
     init {
         view.apply {
+            rootLayout = findViewById(R.id.RootLayout)
             employeeImageView = findViewById(R.id.employeeImageView)
             fullName = findViewById(R.id.fullNameTextView)
             personnelID = findViewById(R.id.personnelIDTextView)
-            rootLayout = findViewById(R.id.RootLayout)
+            isFavoriteImageView = findViewById(R.id.isFavoriteImageView)
         }
     }
 }

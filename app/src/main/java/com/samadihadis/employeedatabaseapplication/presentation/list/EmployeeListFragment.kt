@@ -10,16 +10,22 @@ import android.view.animation.LinearInterpolator
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.samadihadis.employeedatabaseapplication.EmployeeApplication
 import com.samadihadis.employeedatabaseapplication.data.EmployeeRoomDatabase
 import com.samadihadis.employeedatabaseapplication.databinding.FragmentEmployeeListBinding
 import kotlinx.coroutines.launch
 
 class EmployeeListFragment : Fragment() {
+
+    private val employeeViewModel: EmployeeListViewModel by viewModels {
+        EmployeeViewModelFactory((requireContext().applicationContext as EmployeeApplication).repository)
+    }
 
     private lateinit var binding: FragmentEmployeeListBinding
     private val employeeAdaptor by lazy {
@@ -46,12 +52,20 @@ class EmployeeListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeEmployees()
         onBackPressedCallback()
         initAnimation()
         setupView()
         setupClickListeners()
-        showEmployeeList()
     }
+
+    private fun observeEmployees() =
+        employeeViewModel.employees.observe(viewLifecycleOwner) { employee ->
+            employee?.let {
+                employeeAdaptor.clearList()
+                employeeAdaptor.addItemList(it)
+            }
+        }
 
     private fun setupView() {
         with(binding.employeeRecyclerView) {
@@ -79,14 +93,6 @@ class EmployeeListFragment : Fragment() {
             duration = 1000
             repeatCount = ObjectAnimator.INFINITE
             interpolator = LinearInterpolator()
-        }
-    }
-
-    private fun showEmployeeList() {
-        lifecycleScope.launch { // TODO: Fix It In MVVM Architecture
-            val list = EmployeeRoomDatabase.getDatabase(requireContext()).employeeDao().getAll()
-            employeeAdaptor.clearList()
-            employeeAdaptor.addItemList(list)
         }
     }
 

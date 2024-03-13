@@ -105,7 +105,7 @@ class EmployeeListFragment : Fragment() {
                         return
                     }
                     doubleBackToExitPressedOnce = true
-                    Toast.makeText(requireContext(), "click back button again", Toast.LENGTH_SHORT)
+                    Toast.makeText(requireContext(), "برای خروج دوباره بر روی دکمه بازگشت بزنید.", Toast.LENGTH_SHORT)
                         .show()
                     Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
                 }

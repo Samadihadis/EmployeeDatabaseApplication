@@ -43,7 +43,7 @@ class EmployeeInputFragment : Fragment() {
 
     private fun setupEditStatus() = with(binding) {
         val model = args.employeeEntity
-        doneButton.text = "Update"
+        doneButton.text = "به روز رسانی"
         personnelIdEditText.inputType = InputType.TYPE_NULL
 
         if (args.employeeEntity?.gender == PersonGender.MALE.name){
@@ -148,12 +148,12 @@ class EmployeeInputFragment : Fragment() {
             if (isUpdateOperation) {
                 EmployeeRoomDatabase.getDatabase(requireContext()).employeeDao()
                     .update(employeeEntity)
-                Toast.makeText(requireContext(), "Update Operation Is Done.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "کاربر به روز رسانی شد.", Toast.LENGTH_SHORT).show()
                 findNavController().popBackStack(R.id.employeeDetailFragment, true)
             } else {
                 EmployeeRoomDatabase.getDatabase(requireContext()).employeeDao()
                     .insert(employeeEntity)
-                Toast.makeText(requireContext(), "Add Operation Is Done.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "کاربر اضافه شد.", Toast.LENGTH_SHORT).show()
                 findNavController().popBackStack()
             }
         }

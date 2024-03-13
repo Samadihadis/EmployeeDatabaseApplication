@@ -11,7 +11,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Add Employee"
+        app:title="اضافه کردن کارمند"
         app:titleCentered="true" />
 
     <View
@@ -42,7 +42,7 @@
                 android:id="@+id/radioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:gravity="center_vertical"
+                android:gravity="end"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
@@ -50,14 +50,15 @@
                     android:id="@+id/maleRadio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Male"/>
+                    android:text="مرد"/>
 
                 <RadioButton
                     android:id="@+id/femaleRadio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:text="Female"/>
+                    android:layout_marginEnd="24dp"
+                    android:text="زن"/>
 
             </RadioGroup>
 
@@ -65,7 +66,7 @@
                 android:id="@+id/personnelIdInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Personnel ID">
+                android:hint="کد پرسنلی">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/personnelIdEditText"
@@ -80,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="First Name">
+                android:hint="نام">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/firstNameEditText"
@@ -93,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Last Name">
+                android:hint="نام خانوادگی">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/lastNameEditText"
@@ -106,7 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="National ID">
+                android:hint="کد ملی">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nationalIdEditText"
@@ -121,7 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Father's Name">
+                android:hint="نام پدر">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/fatherNameEditText"
@@ -134,7 +135,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Landline Number">
+                android:hint="تلفن منزل">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/landlineNumberEditText"
@@ -149,7 +150,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Mobile Number">
+                android:hint="تلفن همراه">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/mobileNumberEditText"
@@ -164,7 +165,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Address">
+                android:hint="آدرس">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/addressEditText"
@@ -183,7 +184,7 @@
         android:layout_height="64dp"
         android:layout_marginVertical="16dp"
         android:backgroundTint="@color/green"
-        android:text="Add"
+        android:text="اضافه کردن"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

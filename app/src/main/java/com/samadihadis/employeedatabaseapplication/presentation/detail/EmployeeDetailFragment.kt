@@ -37,7 +37,7 @@ class EmployeeDetailFragment : Fragment() {
     private fun setupViews() = with(binding) {
         toolbar.title = args.employeeEntity.personnelID.toString()
         genderValueTextView.text =
-            if (args.employeeEntity.gender == PersonGender.MALE.name) "male" else "female"
+            if (args.employeeEntity.gender == PersonGender.MALE.name) "مرد" else "زن"
         firstNameValueTextView.text = args.employeeEntity.firstName
         lastNameValueTextView.text = args.employeeEntity.lastName
         fatherNameValueTextView.text = args.employeeEntity.fatherName
@@ -63,13 +63,13 @@ class EmployeeDetailFragment : Fragment() {
     private fun confirmDelete() {
         AlertDialog.Builder(requireContext())
             .setIcon(android.R.drawable.ic_dialog_alert)
-            .setTitle("Delete Employee?")
-            .setMessage("Are you sure to delete this entry?")
-            .setPositiveButton("Yes") { dialog, _ ->
+            .setTitle("حذف کاربر")
+            .setMessage("آیا میخواهید این کاربر را حذف کنید؟")
+            .setPositiveButton("بله") { dialog, _ ->
                 dialog.dismiss()
                 deleteEmployee()
             }
-            .setNegativeButton("No", null)
+            .setNegativeButton("خیر", null)
             .show()
     }
 

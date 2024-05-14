@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleCentered="true"
+        tools:title="صفحه جزئیات" />
+
+    <View
+        android:id="@+id/lineView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstNameTitleTextView"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        android:text="نام: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstNameValueTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/firstNameTitleTextView"
+        app:layout_constraintEnd_toStartOf="@+id/firstNameTitleTextView"
+        app:layout_constraintTop_toTopOf="@+id/firstNameTitleTextView"
+        tools:text="نام" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lastNameTitleTextView"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:text="نام خانوادگی: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstNameTitleTextView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lastNameValueTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lastNameTitleTextView"
+        app:layout_constraintEnd_toStartOf="@+id/lastNameTitleTextView"
+        app:layout_constraintTop_toTopOf="@+id/lastNameTitleTextView"
+        tools:text="نام خانوادگی" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/genderTitleTextView"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:text="جنیست: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastNameTitleTextView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/genderValueTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/genderTitleTextView"
+        app:layout_constraintEnd_toStartOf="@+id/genderTitleTextView"
+        app:layout_constraintTop_toTopOf="@+id/genderTitleTextView"
+        tools:text="جنسیت" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/nationalIDTitleTextView"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:text="کد ملی: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genderTitleTextView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/nationalIDValueTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/nationalIDTitleTextView"
+        app:layout_constraintEnd_toStartOf="@+id/nationalIDTitleTextView"
+        app:layout_constraintTop_toTopOf="@+id/nationalIDTitleTextView"
+        tools:text="کد ملی" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/fatherNameTitleTextView"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:text="نام پدر: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nationalIDTitleTextView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/fatherNameValueTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/fatherNameTitleTextView"
+        app:layout_constraintEnd_toStartOf="@+id/fatherNameTitleTextView"
+        app:layout_constraintTop_toTopOf="@+id/fatherNameTitleTextView"
+        tools:text="نام پدر" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/landLineNumberTitleTextView"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:text="تلفن منزل: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fatherNameTitleTextView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/phoneNumberValueTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/landLineNumberTitleTextView"
+        app:layout_constraintEnd_toStartOf="@+id/landLineNumberTitleTextView"
+        app:layout_constraintTop_toTopOf="@+id/landLineNumberTitleTextView"
+        tools:text="تلفن منزل" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mobileNumberTitleTextView"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:text="تلفن همراه: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/landLineNumberTitleTextView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mobileNumberValueTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mobileNumberTitleTextView"
+        app:layout_constraintEnd_toStartOf="@+id/mobileNumberTitleTextView"
+        app:layout_constraintTop_toTopOf="@+id/mobileNumberTitleTextView"
+        tools:text="تلفن همراه" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/addressTitleTextView"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:text="آدرس: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mobileNumberTitleTextView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/addressValueTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/addressTitleTextView"
+        app:layout_constraintEnd_toStartOf="@+id/addressTitleTextView"
+        app:layout_constraintTop_toTopOf="@+id/addressTitleTextView"
+        tools:text="آدرس" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="120dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/red"
+        android:text="حذف"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintEnd_toStartOf="@id/editButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="120dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/yellow"
+        android:text="اصلاح"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/deleteButton"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

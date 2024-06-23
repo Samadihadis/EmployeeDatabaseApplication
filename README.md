@@ -11,6 +11,7 @@ Feature's:
 - Navigation Component(action, argument, backstack management)
 - Linear layout support
 - Fab Button
+- MVVM Architecture
 - Adapter and ViewHolder
 - Util Class
 - Custom Adapter support
